@@ -3,6 +3,8 @@ import { useState, useEffect } from 'react'
 import SwitchTheme from './components/SwitchTheme'
 import Todo from './components/Todo'
 
+import useLoading from './hooks/useLoading'
+
 import { ThemeProvider } from 'styled-components'
 import { GlobalStyles } from './style/Global'
 
@@ -10,10 +12,13 @@ import { Dark, Light } from './style/Theme'
 
 function App() {
   const [theme, setTheme] = useState(Light)
+  const { Loading, isLoading } = useLoading()
 
   useEffect(() => {
     const localTheme = JSON.parse(localStorage.getItem('theme'))
     if (localTheme) setTheme(theme => localTheme)
+    // isLoading(false)
+
   }, [])
 
   useEffect(() => {
@@ -27,6 +32,7 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
+      <Loading loading />
       <SwitchTheme changeTheme={changeTheme} checked={theme.active === 'light' ? false : true} />
       <Todo />
     </ThemeProvider>
