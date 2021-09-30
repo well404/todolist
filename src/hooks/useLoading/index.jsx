@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect, memo, useMemo, useCallback } from 'react'
+import { useState, useRef, useEffect, useMemo } from 'react'
 import { LoadingContainer } from './style'
 
 const useLoading = () => {
@@ -16,7 +16,7 @@ const useLoading = () => {
         return () => {
             clearTimeout(timeOut)
         }
-    }, [])
+    }, [loading])
 
     const Loading = () => {
 
@@ -24,7 +24,7 @@ const useLoading = () => {
 
             <LoadingContainer ref={loadingRef} >
                 <div className="spinner">
-                    <div >
+                    <div>
                         <div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div>
                     </div>
                 </div>
@@ -35,7 +35,8 @@ const useLoading = () => {
     return useMemo(() => {
         return {
             Loading: Loading,
-            isLoading: setLoading
+            isLoading: setLoading,
+            active: loading
         }
     }, [loading])
 

@@ -32,7 +32,7 @@ export const LoadingContainer = styled.main`
     background-color: #fff;
     opacity: 1;
    
-    transition: 1s linear;
+    transition: .5s linear;
 
     &.out{
         opacity: 0;
