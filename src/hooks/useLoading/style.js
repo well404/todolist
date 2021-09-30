@@ -3,18 +3,14 @@ import styled, { css } from 'styled-components'
 
 function createChildren() {
     let styles = '';
-    let rotate = 0
-    let delay = 0.9166
-    for (let i = 1; i <= 12; i++) {
-
+    for (let i = 0; i < 12; i++) {
         styles += `
-                &:nth-child(${i}) {
-                    transform: rotate(${rotate}deg);
-                    animation-delay: -${delay}s;
+                &:nth-child(${i + 1}) {
+                    transform: rotate(${i * 30}deg);
+                    animation-delay: ${i * 0.0836 - 0.9166}s;
                 }
         `
-        rotate += 30
-        delay -= 0.0836
+
     }
 
     return css`${styles}`;
