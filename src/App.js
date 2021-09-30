@@ -18,7 +18,7 @@ function App() {
     const localTheme = JSON.parse(localStorage.getItem('theme'))
     if (localTheme) setTheme(theme => localTheme)
     isLoading(false)
-  }, [])
+  }, [isLoading])
 
   useEffect(() => {
     localStorage.setItem('theme', JSON.stringify(theme))
