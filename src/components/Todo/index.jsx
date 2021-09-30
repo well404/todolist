@@ -46,7 +46,7 @@ const Todo = () => {
     const completedTask = (taskId) => {
         setTasks(tasks => {
             const filtered = tasks.map((task) => {
-                if (taskId == task.id) {
+                if (taskId === task.id) {
                     return { ...task, completed: !task.completed }
                 }
 

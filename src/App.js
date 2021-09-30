@@ -21,13 +21,13 @@ function App() {
   }, [theme])
 
   const changeTheme = () => {
-    setTheme(theme => theme.active == 'light' ? Dark : Light)
+    setTheme(theme => theme.active === 'light' ? Dark : Light)
   }
 
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <SwitchTheme changeTheme={changeTheme} checked={theme.active == 'light' ? false : true} />
+      <SwitchTheme changeTheme={changeTheme} checked={theme.active === 'light' ? false : true} />
       <Todo />
     </ThemeProvider>
   );
